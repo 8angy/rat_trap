@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# Mike Bangham 2016 - RPi MouseTrap
+# Mike Bangham 2015 - RPi MouseTrap
 
 import RPi.GPIO as GPIO
 from time import sleep
@@ -41,24 +41,24 @@ class Trap:
 
 	def _motor(self, t):
 		print(t)
-		# Motor activation to pull pin and released trap dor
+		# Motor activation to pull pin and release trap door
 		sleep(10)
 		# Need to pause for a moment to allow the mouse to enter the chamber and begin eating.
 		GPIO.setmode(GPIO.BCM)
 		step_pins = [5, 6, 12, 13]
 
-		for pin in StepPins:
+		for pin in step_pins:
 			GPIO.setup(pin,GPIO.OUT)
 			GPIO.output(pin, False)
 		 
 		step_counter = 0
-		loopcount = 8000
+		loop-count = 8000
 		i=1
 
-		while i < loopcount:  
+		while i < loop-count:  
 			for pin in range(0,4):
 				xpin=step_pins[pin]# Get GPIO
-				if Seq[step_counter][pin]!=0:
+				if seq[step_counter][pin]!=0:
 					print ("Motor Rotating...")
 					GPIO.output(xpin, True)
 				else:
@@ -75,7 +75,7 @@ class Trap:
 
 
 class MotionThread(QtCore.QObject):
-	# Our thread to detect motion in the rat trap
+	# Our thread to detect motion in the rat trap 
 	signal = QtCore.pyqtSignal(str)
  
 	def __init__(self):
